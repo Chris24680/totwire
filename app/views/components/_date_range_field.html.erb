@@ -1,0 +1,28 @@
+<%= label_tag field_label %>
+
+<% start_value =
+  (
+    if params[field_name + "_start"].present?
+      Date.parse(params[field_name + "_start"])
+    else
+      nil
+    end
+  ) %>
+<%= form.date_field field_name + "_start",
+                value: start_value,
+                data: {
+                  "action" => "change->auto-submit#submit",
+                } %>
+<% end_value =
+  (
+    if params[field_name + "_end"].present?
+      Date.parse(params[field_name + "_end"])
+    else
+      nil
+    end
+  ) %>
+<%= form.date_field field_name + "_end",
+                value: end_value,
+                data: {
+                  "action" => "change->auto-submit#submit",
+                } %>

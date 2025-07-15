@@ -1,0 +1,16 @@
+<th
+  scope="col"
+  class="
+    px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider
+  "
+>
+  <%= link_to column[:label],
+  params.to_unsafe_hash.merge(
+    sort_column: column[:sort_column],
+    sort_direction: params[:sort_direction] == "desc" ? "asc" : "desc",
+  ),
+  data: {
+    turbo_frame: model_class.name.parameterize.camelcase,
+    turbo_action: "advance",
+  } %>
+</th>

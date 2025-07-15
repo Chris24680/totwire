@@ -1,0 +1,10 @@
+<div>
+  <%= label_tag field_label %>
+  <%= form.select field_name,
+              options_for_select(
+                model_class.pluck(field_name).uniq.sort,
+                params[field_name],
+              ),
+              { include_blank: true },
+              { "data-action" => "change->auto-submit#submit" } %>
+</div>

@@ -1,0 +1,38 @@
+<%= turbo_frame_tag "#{model_class.name.parameterize.underscore}_filters" do %>
+  <%= form_with url: "", method: :get, html: { class: "flex flex-col", data: { turbo_action: "advance", controller: "auto-submit", turbo_frame: "_top" } } do |form| %>
+    <div>
+      <%= render partial: "components/select_field",
+      locals: {
+        field_label: "Size",
+        field_name: "size",
+        model_class: model_class,
+        form: form,
+      } %>
+    </div>
+    <div>
+      <%= render partial: "components/range_field",
+      locals: {
+        field_label: "Cost",
+        field_name: "cost",
+        model_class: model_class,
+        form: form,
+      } %>
+    </div>
+    <div>
+      <%= render partial: "components/date_range_field",
+      locals: {
+        field_label: "Created At",
+        field_name: "created_at",
+        form: form,
+      } %>
+    </div>
+    <div>
+      <%= render partial: "components/date_range_field",
+      locals: {
+        field_label: "Created At",
+        field_name: "created_at",
+        form: form,
+      } %>
+    </div>
+  <% end %>
+<% end %>

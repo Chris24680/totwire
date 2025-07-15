@@ -1,0 +1,23 @@
+<%= render "components/table_row" do %>
+  <%= render "components/cell" do %>
+    <%= record.id %>
+  <% end %>
+  <%= render "components/cell" do %>
+    <%= record.name %>
+  <% end %>
+  <%= render "components/cell" do %>
+    <%= record.cost %>
+  <% end %>
+  <%= render "components/cell" do %>
+    <%= record.stock %>
+  <% end %>
+  <%= render "components/cell" do %>
+    <%= record.size %>
+  <% end %>
+  <%= render "components/cell" do %>
+    <%= record.toxic? %>
+  <% end %>
+  <%= render "components/cell" do %>
+    <%= record.inventor.name %>
+  <% end %>
+<% end %>

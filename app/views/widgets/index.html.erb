@@ -1,0 +1,8 @@
+<div class="w-full">
+  <%= render partial: "components/filter_form", locals: { model_class: Widget } %>
+  <%= render partial: "components/datatable",
+  locals: {
+    model_class: Widget,
+    records: @widgets,
+  } %>
+</div>

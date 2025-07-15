@@ -1,0 +1,14 @@
+<%= label_tag field_name + "_min" %>
+<%= form.number_field field_name + "_min",
+                  minimum: (model_class.minimum(field_name)),
+                  value: params[field_name + "_min"],
+                  data: {
+                    "action" => "change->auto-submit#submit",
+                  } %>
+<%= label_tag field_name + "_max" %>
+<%= form.number_field field_name + "_max",
+                  minimum: (model_class.maximum(field_name)),
+                  value: params[field_name + "_max"],
+                  data: {
+                    "action" => "change->auto-submit#submit",
+                  } %>

@@ -1,0 +1,26 @@
+<%= turbo_frame_tag "#{model_class.name.parameterize.underscore}_table" do %>
+  <div class="overflow-x-auto">
+    <table class="min-w-full divide-y divide-gray-200">
+      <thead>
+        <tr>
+          <% model_class::SORT_COLUMNS.each do |column| %>
+            <%= render partial: "components/table_header",
+            locals: {
+              column: column,
+              model_class: model_class,
+            } %>
+          <% end %>
+        </tr>
+      </thead>
+      <tbody class="bg-white divide-y divide-gray-200">
+        <% records.each do |record| %>
+          <%= render partial: "#{model_class.model_name.collection}/table_row",
+          locals: {
+            record: record,
+          } %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <%= pagy_nav(@pagy).html_safe %>
+<% end %>
